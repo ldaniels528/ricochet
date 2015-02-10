@@ -1,4 +1,4 @@
-# Radius
+# Ricochet
 A Scala-based arcade game, which is eerily similar to the 1980's era Breakout games.
 
 ### Build Requirements
