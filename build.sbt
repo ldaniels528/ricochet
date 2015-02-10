@@ -18,11 +18,11 @@ scalacOptions ++= Seq("-deprecation", "-encoding", "UTF-8", "-feature", "-target
 
 javacOptions ++= Seq("-Xlint:deprecation", "-Xlint:unchecked", "-source", "1.7", "-target", "1.7", "-g:vars")
 
-mainClass in assembly := Some("com.ldaniels528.radius.RadiusMain")
+mainClass in assembly := Some("com.ldaniels528.ricochet.RicochetApp")
 
 test in assembly := {}
 
-jarName in assembly := "radius.jar"
+jarName in assembly := "ricochet.jar"
 
 // General Dependencies
 libraryDependencies ++= Seq(
