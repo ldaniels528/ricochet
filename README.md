@@ -7,6 +7,8 @@ A Scala-based arcade game, which is eerily similar to the 1980's era Breakout ga
 * [Scala 2.11.4] (http://scala-lang.org/download/)
 * [SBT 0.13+] (http://www.scala-sbt.org/download.html)
 
+![](https://github.com/ldaniels528/ricochet/blob/develop/screenshots/GetReady.png)
+
 ### Configuring the project for your IDE
 
 #### Generating an Eclipse project
