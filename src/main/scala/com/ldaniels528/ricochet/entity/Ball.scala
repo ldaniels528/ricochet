@@ -2,8 +2,9 @@ package com.ldaniels528.ricochet.entity
 
 import java.awt.{Color, Graphics2D, Rectangle}
 
-import com.ldaniels528.ricochet.AudioManager._
+import com.ldaniels528.ricochet.AudioSamples._
 import com.ldaniels528.ricochet.Direction._
+import com.ldaniels528.ricochet.RicochetAudioPlayer._
 import com.ldaniels528.ricochet.VirtualWorld
 import com.ldaniels528.ricochet.entity.Ball._
 
@@ -24,12 +25,13 @@ case class Ball(var x: Double, var y: Double, color: Color, var speed: Double) e
 
   override def handleCollision(world: VirtualWorld, entity: Entity, maxX: Int, maxY: Int) {
     entity match {
-      case p: Paddle =>
+      case _: Paddle =>
         audioPlayer ! BounceClip
         direction = randomDirection(NW, NE)
-      case _ =>
+      case _: Brick =>
         audioPlayer ! BreakClip
         direction = opposite(direction)
+      case _ =>
     }
 
     if (speed < MaxSpeed) speed += .1
@@ -51,7 +53,7 @@ case class Ball(var x: Double, var y: Double, color: Color, var speed: Double) e
         x = Math.min(x + delta, limitX).toInt
         y = Math.max(y - delta, Radius).toInt
         if (x == limitX) direction = NW
-        else if (y == Radius) direction = if(x > maxX/2) SW else SE
+        else if (y == Radius) direction = if (x > maxX / 2) SW else SE
       case SE =>
         x = Math.min(x + delta, limitX).toInt
         y = Math.min(y + delta, limitY).toInt

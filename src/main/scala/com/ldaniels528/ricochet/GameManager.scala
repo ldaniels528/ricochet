@@ -2,10 +2,11 @@ package com.ldaniels528.ricochet
 
 import java.awt.{Color, Graphics2D}
 
-import com.ldaniels528.ricochet.AudioManager._
+import com.ldaniels528.ricochet.AudioSamples._
 import com.ldaniels528.ricochet.EntityLifeCycleState._
 import com.ldaniels528.ricochet.Fonts._
 import com.ldaniels528.ricochet.GraphicsExtensions._
+import com.ldaniels528.ricochet.RicochetAudioPlayer._
 import com.ldaniels528.ricochet.entity.{GenericBrick, Paddle}
 
 /**
