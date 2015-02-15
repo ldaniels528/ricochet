@@ -61,7 +61,7 @@ object AudioPlayer {
   trait AudioSample {
 
     /**
-     * Plays the audio represented by the given cached audio data object
+     * Plays the audio represented by the given audio sample
      */
     def play()
 
@@ -119,16 +119,16 @@ object AudioPlayer {
   }
 
   /**
-   * Represents an audio sample
+   * Represents a discrete audio sample
    * @author lawrence.daniels@gmail.com
    */
   class DiscreteAudioSample(path: String) extends AudioSample {
     val sample = loadAudioSample(getResource(path))
 
     /**
-     * Plays the audio represented by the given cached audio data object
+     * Plays the audio represented by the given audio sample
      */
-    def play() {
+    override def play() {
       val format = sample.format
       val data = sample.audioData
 
@@ -168,7 +168,7 @@ object AudioPlayer {
     val sample = loadAudioSample(getResource(path))
 
     /**
-     * Plays the audio represented by the given cached audio data object
+     * Plays the audio represented by the given audio sample
      */
     override def play() {
       val format = sample.format
