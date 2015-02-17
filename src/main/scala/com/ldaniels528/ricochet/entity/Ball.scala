@@ -2,7 +2,7 @@ package com.ldaniels528.ricochet.entity
 
 import java.awt.{Color, Graphics2D, Rectangle}
 
-import com.ldaniels528.ricochet.AudioSamples._
+import com.ldaniels528.ricochet.RicochetAudioSamples._
 import com.ldaniels528.ricochet.Direction._
 import com.ldaniels528.ricochet.RicochetAudioPlayer._
 import com.ldaniels528.ricochet.VirtualWorld
