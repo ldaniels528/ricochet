@@ -1,6 +1,7 @@
 package com.ldaniels528.audioplayer
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.actor.{Actor, ActorSystem, Props}
+import akka.routing.RoundRobinPool
 import com.ldaniels528.audioplayer.AudioPlayer._
 
 import scala.util.Try
@@ -13,17 +14,8 @@ class AudioPlayer(audioSamples: Seq[AudioSample], parallelism: Int = 8) {
   private val system = ActorSystem("AudioPlayerSystem")
 
   // create the audio play-back actors
-  private val audioPlayers = (1 to parallelism) map (n => system.actorOf(Props[AudioPlaybackActor], name = s"AudioPlayer$n"))
-  private var ticker = 0
-
-  /**
-   * Returns a reference to an actor for the audio play-back pool
-   * @return an actor reference
-   */
-  def audioPlayer: ActorRef = {
-    ticker += 1
-    audioPlayers(ticker % audioPlayers.length)
-  }
+  val audioPlayer = system.actorOf(Props[AudioPlaybackActor].
+    withRouter(RoundRobinPool(nrOfInstances = parallelism)), name = "audioPlayerActor")
 
 }
 

@@ -15,7 +15,7 @@ class ContinuousAudioSample(file: File, isAlive: => Boolean) extends AudioSample
   override def play() {
     import sample.{audioData, format}
 
-    // create a SourceDataLine for play back
+    // play back the audio clip
     getSourceDataLine(format) foreach { dataLine =>
       dataLine.open(format)
 

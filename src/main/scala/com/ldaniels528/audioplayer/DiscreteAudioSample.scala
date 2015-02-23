@@ -15,6 +15,7 @@ class DiscreteAudioSample(file: File) extends AudioSample {
   override def play() {
     import sample.{audioData, format}
 
+    // play back the audio clip
     getSourceDataLine(format) foreach { dataLine =>
       dataLine.open(format)
 
